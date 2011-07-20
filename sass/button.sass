@@ -1,0 +1,136 @@
+
+// Author: Adrian Rodriguez
+// URL: http://adrian-rodriguez.net
+// Project: Push It, Pure CSS Push Buttons
+
+@import "compass/css3"
+
+@mixin push_it
+  background: rgba(0, 0, 0, 1)
+  @include background-image(linear-gradient(top center, #484545, #2c2c2b))
+  @include border-radius(4px 4px 6px 6px)
+  border: 1px solid #282727
+  @include box-shadow(0px 0px 5px rgba(0,0,0,0))
+  border-bottom: 1px solid #383837
+  display: block
+  text-align: center
+  width: 100px
+  padding: 10px 20px 15px
+  color: #fff
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.55)
+  position: absolute
+  // top positioning determines the amount of depth your button has
+  top: -2px
+  left: 0px
+  z-index: 2
+
+    
+  &:hover
+    cursor: pointer
+    
+  &:active
+    top: 0px
+    
+@mixin push_it_background
+  background: #282727
+  border-radius: 5px
+  position: relative
+  width: 102px
+  padding: 10px 20px 20px
+  z-index: 1
+  display: block
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.75)
+
+* 
+  margin: 0
+  padding: 0
+  
+body
+  background-color: lighten(#333, 35%)
+  
+.github  
+  font:
+    size: 15px
+    family: "Helvetica", Arial, sans-serif
+    weight: normal
+  color: #fff
+  text-shadow: none
+  @include background-image(linear-gradient(top center, rgba(0,0,0,0.35), rgba(0,0,0,0.55)))
+  @include box-shadow(inset 0px 1px 0px rgba(255,255,255,0.45))
+  width: 255px
+  text-align: center
+  @include rotate(-35deg)
+  position: absolute
+  top: 45px
+  left: -30px
+  
+  a
+    text-decoration: none
+    color: #fff
+    display: block
+    font-weight: bold
+    padding: 5px 25px
+    text-shadow: 0px 1px 0px rgba(0,0,0,0.90)
+       
+.wrapper
+  width: 900px
+  margin: 200px auto
+  border-left: 5px dotted #fff
+  padding: 0 35px 75px 35px
+
+  h1
+    font:
+      family: "Lobster", cursive
+      size: 70px
+    color: #333333
+    text-shadow: 0px 1px 1px rgba(255,255,255,0.75)
+    margin-bottom: 0
+      
+  h2
+    font:
+      family: "Lobster", cursive
+      size: 48px
+    color: #333333
+    text-shadow: 0px 1px 1px rgba(255,255,255,0.75)
+    margin-bottom: 20px
+    
+.button_wrapper
+  width: 100px
+  margin-right: 100px
+  float: left
+  
+.button, .button_underneath
+  // keep both the button and the bevel (button_underneath) the same size/weight/family to keep the size of each the same
+  font:
+    weight: bold
+    family: "Lobster", cursive
+    size: 15px
+    
+.button
+  @include push_it
+    
+  &.blue
+    @include background-image(linear-gradient(top center, #0192f7, darken(#0192f7, 15%)))
+    border: 1px solid darken(#0192f7, 20%)
+      
+  &.orange
+    @include background-image(linear-gradient(top center, #f7af01, darken(#f7af01, 15%)))
+    border: 1px solid darken(#f7af01, 20%)
+    
+  &.grey
+    @include background-image(linear-gradient(top center, #ffffff, darken(#ffffff, 15%)))
+    border: 1px solid darken(#ffffff, 20%)
+    color: lighten(#333333, 20%)
+    text-shadow: 0px -1px 0px rgba(255,255,255, .90)
+    
+.button_underneath
+  @include push_it_background
+    
+  &.blue
+    background: darken(#0192f7, 20%)
+    
+  &.orange
+    background: darken(#f7af01, 20%)
+    
+  &.grey
+    background: darken(#ffffff, 25%)
